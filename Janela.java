@@ -100,16 +100,18 @@ public class Janela {
         
     }
     
-    public void exibirMedia(JPanel jp){
-        Graphics2D g2d = (Graphics2D) jp.getGraphics();
-        int acima = controlador.alunosAcimaMedia();
-        int max = controlador.quantidade();
-        int novo = (acima*jp.getWidth())/max;
-        g2d.setColor(Color.blue);
-        g2d.fillRect(0, 0, novo, jp.getHeight());
-        g2d.setColor(Color.red);
-        g2d.fillRect(novo + 1, 0, jp.getWidth() - novo, jp.getHeight());
-        jp.paintComponents(g2d);
+   public void exibirMedia(JPanel jp){
+        if(controlador.quantidade() > 0){
+            Graphics2D g2d = (Graphics2D) jp.getGraphics();
+            int acima = controlador.alunosAcimaMedia();
+            int max = controlador.quantidade();
+            int novo = (acima*jp.getWidth())/max;
+            g2d.setColor(Color.blue);
+            g2d.fillRect(0, 0, novo, jp.getHeight());
+            g2d.setColor(Color.red);
+            g2d.fillRect(novo + 1, 0, jp.getWidth() - novo, jp.getHeight());
+            jp.paintComponents(g2d);
+        }
         
     }
     
